@@ -1,0 +1,684 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --mermaid-theme: default; --mermaid-sequence-numbers: off; --mermaid-flowchart-curve: linear; --mermaid--gantt-left-padding: 75; --sequence-theme: simple; }
+
+
+:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>1-28培训学习笔记</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='1-28培训学习笔记'><span>1-28培训学习笔记</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n691"><a class="md-toc-inner" href="#1-28培训学习笔记">1-28培训学习笔记</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n694"><a class="md-toc-inner" href="#博弈论">博弈论</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n696"><a class="md-toc-inner" href="#可用的参考书">可用的参考书</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n700"><a class="md-toc-inner" href="#画横线法">画横线法</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n703"><a class="md-toc-inner" href="#转移图法">转移图法</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n706"><a class="md-toc-inner" href="#存在多个纳什均衡的博弈">存在多个纳什均衡的博弈</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n713"><a class="md-toc-inner" href="#一些方法">一些方法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n738"><a class="md-toc-inner" href="#集成学习">集成学习</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n739"><a class="md-toc-inner" href="#数据集划分">数据集划分</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n747"><a class="md-toc-inner" href="#k折交叉验证">K折交叉验证</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n751"><a class="md-toc-inner" href="#集成思想">集成思想</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n753"><a class="md-toc-inner" href="#目的">目的</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n761"><a class="md-toc-inner" href="#latex">LaTex</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n765"><a class="md-toc-inner" href="#下载-1">下载</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n773"><a class="md-toc-inner" href="#一份简短的关于-latex-安装的介绍">一份简短的关于 LATEX 安装的介绍</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n775"><a class="md-toc-inner" href="#文档安装">文档安装</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n777"><a class="md-toc-inner" href="#文档打开">文档打开</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n779"><a class="md-toc-inner" href="#升级宏包">升级宏包</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n781"><a class="md-toc-inner" href="#问题">问题</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n792"><a class="md-toc-inner" href="#模板下载">模板下载</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n794"><a class="md-toc-inner" href="#期刊模板下载">期刊模板下载</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n796"><a class="md-toc-inner" href="#公式编辑">公式编辑</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n797"><a class="md-toc-inner" href="#在线编辑器">在线编辑器</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n799"><a class="md-toc-inner" href="#mathtype">MathType</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n800"><a class="md-toc-inner" href="#下载-2">下载</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n803"><a class="md-toc-inner" href="#安装">安装</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n811"><a class="md-toc-inner" href="#清除编译缓存文件">清除编译缓存文件</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n815"><a class="md-toc-inner" href="#模板使用">模板使用</a></span></p></div><h2 id='博弈论'><span>博弈论</span></h2><p><span>        静态博弈 or 动态博弈</span></p><h3 id='可用的参考书'><span>可用的参考书</span></h3><blockquote><p><span>数学建模第5版.pdf</span>
+<code>https://www.aliyundrive.com/s/prFBR8VWuFD</code><span> </span>
+<span>提取码: 4c8k</span></p><p><span>备注：第十章</span></p></blockquote><h3 id='画横线法'><span>画横线法</span></h3><p><span>        最终都选择坦白，这个纳什均衡</span></p><p><img src="https://gitee.com/Swinden/images/raw/master/img/20230129112227.png" title="" alt="" data-align="center"></p><h3 id='转移图法'><span>转移图法</span></h3><p><span>        考虑两个国家(国家A和B)在军备竞赛中陷入僵局。我们从国家A开始考虑，它可以保持军备或者裁军。结果依赖于国家B是否裁军。我们把结果用4，3，2，1排序，其中4表示最好的结果而1表示最坏的结果。</span></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129112858.png" alt="" data-align="center"></p><h3 id='存在多个纳什均衡的博弈'><span>存在多个纳什均衡的博弈</span></h3><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129113718.png" alt="" data-align="center"></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129113821.png" alt="" data-align="center"><span> </span></p><p><span>        画横线发解决不了这个问题</span></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/CP9O_%7D%5D%7BNTJ@8~(%7B%7D44Q%7D65.png" alt="" data-align="center"></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129115902.png" alt="" data-align="center"></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129131549.png" alt="" data-align="center"></p><h3 id='一些方法'><span>一些方法</span></h3><ul><li><p><span>几何法</span></p></li><li><p><span>代数法</span></p></li><li><p><span>最大最小-最小最大方法</span></p></li><li><p><span>转移图</span></p></li><li><p><span>2×2完全冲突博弈的其他简便解法</span></p><ol start='' ><li><span>让对手的策略对应的期望值相等</span></li><li><span>零头法，也称为William方法</span></li></ol></li><li><p><span>博弈树</span></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129135346.png" alt="" width="391"></p><ul><li><span>逆向归纳法剪枝得均衡</span></li></ul></li><li><p><span>蜈蚣博弈</span></p></li></ul><h2 id='集成学习'><span>集成学习</span></h2><h3 id='数据集划分'><span>数据集划分</span></h3><ol start='' ><li><span>训练集</span></li><li><span>测试集</span></li><li><span>验证集</span></li></ol><h3 id='k折交叉验证'><span>K折交叉验证</span></h3><blockquote><p><span>分成K段，求准确率平均值</span></p></blockquote><p><span>        对超参数进行优化</span></p><h3 id='集成思想'><span>集成思想</span></h3><p><span>        就是把多个结果集成到一起，关键：结合</span></p><h4 id='目的'><span>目的</span></h4><p><span>        提高结果准确率</span></p><div class="md-diagram-panel md-fences-adv-panel"><svg id="mermaidChart18" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="746.2000045776367" style="max-width: 840.5843753814697px;" viewBox="0 0 840.5843753814697 746.2000045776367" role="img" aria-labelledby="chart-title-mermaidChart18 chart-desc-mermaidChart18"><title id="chart-title-mermaidChart18"></title><desc id="chart-desc-mermaidChart18"></desc><style>#mermaidChart18 {font-family:sans-serif;font-size:16px;fill:#333;}#mermaidChart18 .error-icon{fill:#552222;}#mermaidChart18 .error-text{fill:#552222;stroke:#552222;}#mermaidChart18 .edge-thickness-normal{stroke-width:2px;}#mermaidChart18 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart18 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart18 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart18 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart18 .marker{fill:#333333;stroke:#333333;}#mermaidChart18 .marker.cross{stroke:#333333;}#mermaidChart18 svg{font-family:sans-serif;font-size:16px;}#mermaidChart18 g.classGroup text{fill:#9370DB;fill:#131300;stroke:none;font-family:sans-serif;font-size:10px;}#mermaidChart18 g.classGroup text .title{font-weight:bolder;}#mermaidChart18 .nodeLabel,#mermaidChart18 .edgeLabel{color:#131300;}#mermaidChart18 .edgeLabel .label rect{fill:#ECECFF;}#mermaidChart18 .label text{fill:#131300;}#mermaidChart18 .edgeLabel .label span{background:#ECECFF;}#mermaidChart18 .classTitle{font-weight:bolder;}#mermaidChart18 .node rect,#mermaidChart18 .node circle,#mermaidChart18 .node ellipse,#mermaidChart18 .node polygon,#mermaidChart18 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaidChart18 .divider{stroke:#9370DB;stroke:1;}#mermaidChart18 g.clickable{cursor:pointer;}#mermaidChart18 g.classGroup rect{fill:#ECECFF;stroke:#9370DB;}#mermaidChart18 g.classGroup line{stroke:#9370DB;stroke-width:1;}#mermaidChart18 .classLabel .box{stroke:none;stroke-width:0;fill:#ECECFF;opacity:0.5;}#mermaidChart18 .classLabel .label{fill:#9370DB;font-size:10px;}#mermaidChart18 .relation{stroke:#333333;stroke-width:1;fill:none;}#mermaidChart18 .dashed-line{stroke-dasharray:3;}#mermaidChart18 #compositionStart,#mermaidChart18 .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart18 #compositionEnd,#mermaidChart18 .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart18 #dependencyStart,#mermaidChart18 .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart18 #dependencyStart,#mermaidChart18 .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart18 #extensionStart,#mermaidChart18 .extension{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart18 #extensionEnd,#mermaidChart18 .extension{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart18 #aggregationStart,#mermaidChart18 .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaidChart18 #aggregationEnd,#mermaidChart18 .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaidChart18 .edgeTerminals{font-size:11px;}#mermaidChart18 :root{--mermaid-font-family:sans-serif;}#mermaidChart18 :root{--mermaid-alt-font-family:sans-serif;}</style><g transform="translate(0, 0)"><defs><marker id="classDiagram-aggregationStart" class="marker aggregation classDiagram" refX="0" refY="7" markerWidth="190" markerHeight="240" orient="auto"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-aggregationEnd" class="marker aggregation classDiagram" refX="19" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-extensionStart" class="marker extension classDiagram" refX="0" refY="7" markerWidth="190" markerHeight="240" orient="auto"><path d="M 1,7 L18,13 V 1 Z"></path></marker></defs><defs><marker id="classDiagram-extensionEnd" class="marker extension classDiagram" refX="19" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 1,1 V 13 L18,7 Z"></path></marker></defs><defs><marker id="classDiagram-compositionStart" class="marker composition classDiagram" refX="0" refY="7" markerWidth="190" markerHeight="240" orient="auto"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-compositionEnd" class="marker composition classDiagram" refX="19" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-dependencyStart" class="marker dependency classDiagram" refX="0" refY="7" markerWidth="190" markerHeight="240" orient="auto"><path d="M 5,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-dependencyEnd" class="marker dependency classDiagram" refX="19" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 18,7 L9,13 L14,7 L9,1 Z"></path></marker></defs><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M199.58437538146973,56.993294194506085L183.57031281789145,63.761078241108585C167.55625025431314,70.52886228771109,135.52812512715658,84.0644303809161,119.51406256357829,94.99888109418525C103.5,105.93333180745442,103.5,114.26666514078777,103.5,118.43333180745442L103.5,122.5999984741211" id="id1" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M278.5843753814697,71.12926727944695L284.2369794845581,75.54105581189263C289.8895835876465,79.95284434433833,301.19479179382324,88.77642140922971,306.8473958969116,99.82154378363504C312.5,110.86666615804036,312.5,124.13333384195964,312.5,130.76666768391928L312.5,137.4000015258789" id="id2" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M278.5843753814697,50.29643819164785L309.7369794845581,58.18036490539339C340.8895835876465,66.06429161913893,403.19479179382324,81.83214504663,434.3473958969116,98.81607214184528C465.5,115.79999923706055,465.5,134,465.5,143.10000038146973L465.5,152.20000076293945" id="id3" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M438.2120301780355,216.79999923706055L430.52408771194115,225.89999961853027C422.8361452458469,235,407.46026031365835,253.20000076293945,399.772317847564,271.4000015258789C392.0843753814697,289.60000228881836,392.0843753814697,307.8000030517578,392.0843753814697,316.90000343322754L392.0843753814697,326.00000381469727" id="id4" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M426,196.39444181007667L384.4859374364217,208.89536842937704C342.97187487284344,221.39629504867742,259.94374974568683,246.39814828727813,218.42968718210855,267.99907528804823C176.91562461853027,289.60000228881836,176.91562461853027,307.8000030517578,176.91562461853027,316.90000343322754L176.91562461853027,326.00000381469727" id="id5" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M505,202.41664927496075L530.3473958969116,213.9138746501138C555.6947917938232,225.4111000252668,606.3895835876465,248.40555077557283,631.7369794845581,264.06944281739254C657.0843753814697,279.7333348592122,657.0843753814697,288.0666681925456,657.0843753814697,292.2333348592122L657.0843753814697,296.4000015258789" id="id6" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M176.91562461853027,390.60000228881836L176.91562461853027,399.7000026702881C176.91562461853027,408.8000030517578,176.91562461853027,427.00000381469727,176.91562461853027,440.2666708628337C176.91562461853027,453.53333791097003,176.91562461853027,461.8666712443034,176.91562461853027,466.03333791097003L176.91562461853027,470.2000045776367" id="id7" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M392.0843753814697,390.60000228881836L392.0843753814697,399.7000026702881C392.0843753814697,408.8000030517578,392.0843753814697,427.00000381469727,392.0843753814697,440.2666708628337C392.0843753814697,453.53333791097003,392.0843753814697,461.8666712443034,392.0843753814697,466.03333791097003L392.0843753814697,470.2000045776367" id="id8" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M349.2489348843861,564.4000015258789L345.45952919747833,568.5666681925455C341.6701235105705,572.7333348592123,334.091312136755,581.0666681925455,330.3019064498472,594.333335240682C326.51250076293945,607.6000022888184,326.51250076293945,625.8000030517578,326.51250076293945,634.9000034332275L326.51250076293945,644.0000038146973" id="id9" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M434.9198158785534,564.4000015258789L438.7092215654611,568.5666681925455C442.498627252369,572.7333348592123,450.07743862618446,581.0666681925455,453.86684431309226,589.4000015258789C457.65625,597.7333348592123,457.65625,606.0666681925455,457.65625,610.2333348592123L457.65625,614.4000015258789" id="id10" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="classid-集成学习-168" transform="translate(239.08437538146973, 40.29999923706055)"><rect class="outer title-state" x="-39.5" y="-32.30000019073486" width="79" height="64.60000038146973"></rect><line class="divider" x1="-39.5" x2="39.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-39.5" x2="39.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="64" height="25.600000381469727" transform="translate( -32, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">集成学习</span></div></foreignObject></g></g><g class="node default" id="classid-集成思想-169" transform="translate(103.5, 184.5)"><rect class="outer title-state" x="-95.5" y="-61.90000057220459" width="191" height="123.80000114440918"></rect><line class="divider" x1="-95.5" x2="95.5" y1="-24.300000190734863" y2="-24.300000190734863"></line><line class="divider" x1="-95.5" x2="95.5" y1="50.90000057220459" y2="50.90000057220459"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="64" height="25.600000381469727" transform="translate( -32, -54.40000057220459)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">集成思想</span></div></foreignObject><foreignObject width="144" height="25.600000381469727" transform="translate( -88, -12.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">多个结果集成到一起</span></div></foreignObject><foreignObject width="176" height="25.600000381469727" transform="translate( -88, 16.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">结果如何出来，如何集成</span></div></foreignObject></g></g><g class="node default" id="classid-集成的重要性-170" transform="translate(312.5, 184.5)"><rect class="outer title-state" x="-63.5" y="-47.10000038146973" width="127" height="94.20000076293945"></rect><line class="divider" x1="-63.5" x2="63.5" y1="-9.5" y2="-9.5"></line><line class="divider" x1="-63.5" x2="63.5" y1="36.10000038146973" y2="36.10000038146973"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="96" height="25.600000381469727" transform="translate( -48, -39.60000038146973)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">集成的重要性</span></div></foreignObject><foreignObject width="112" height="25.600000381469727" transform="translate( -56, 2)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">提高算法准确率</span></div></foreignObject></g></g><g class="node default" id="classid-机器学习-171" transform="translate(465.5, 184.5)"><rect class="outer title-state" x="-39.5" y="-32.30000019073486" width="79" height="64.60000038146973"></rect><line class="divider" x1="-39.5" x2="39.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-39.5" x2="39.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="64" height="25.600000381469727" transform="translate( -32, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">机器学习</span></div></foreignObject></g></g><g class="node default" id="classid-监督学习-172" transform="translate(392.0843753814697, 358.3000030517578)"><rect class="outer title-state" x="-39.5" y="-32.30000019073486" width="79" height="64.60000038146973"></rect><line class="divider" x1="-39.5" x2="39.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-39.5" x2="39.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="64" height="25.600000381469727" transform="translate( -32, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">监督学习</span></div></foreignObject></g></g><g class="node default" id="classid-无监督学习-173" transform="translate(176.91562461853027, 358.3000030517578)"><rect class="outer title-state" x="-47.5" y="-32.30000019073486" width="95" height="64.60000038146973"></rect><line class="divider" x1="-47.5" x2="47.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-47.5" x2="47.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="80" height="25.600000381469727" transform="translate( -40, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">无监督学习</span></div></foreignObject></g></g><g class="node default" id="classid-半监督学习-174" transform="translate(657.0843753814697, 358.3000030517578)"><rect class="outer title-state" x="-175.5" y="-61.90000057220459" width="351" height="123.80000114440918"></rect><line class="divider" x1="-175.5" x2="175.5" y1="-24.300000190734863" y2="-24.300000190734863"></line><line class="divider" x1="-175.5" x2="175.5" y1="50.90000057220459" y2="50.90000057220459"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="80" height="25.600000381469727" transform="translate( -40, -54.40000057220459)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">半监督学习</span></div></foreignObject><foreignObject width="336" height="25.600000381469727" transform="translate( -168, -12.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">无标签数据对有标签数据的回归、分类提供帮助</span></div></foreignObject><foreignObject width="272" height="25.600000381469727" transform="translate( -168, 16.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">有标签数据对无标签数据聚类提供帮助</span></div></foreignObject></g></g><g class="node default" id="classid-聚类-175" transform="translate(176.91562461853027, 517.3000030517578)"><rect class="outer title-state" x="-37.66875076293945" y="-47.10000038146973" width="75.3375015258789" height="94.20000076293945"></rect><line class="divider" x1="-37.66875076293945" x2="37.66875076293945" y1="-9.5" y2="-9.5"></line><line class="divider" x1="-37.66875076293945" x2="37.66875076293945" y1="36.10000038146973" y2="36.10000038146973"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="32" height="25.600000381469727" transform="translate( -16, -39.60000038146973)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">聚类</span></div></foreignObject><foreignObject width="60.337501525878906" height="25.600000381469727" transform="translate( -30.168750762939453, 2)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">Kmeans</span></div></foreignObject></g></g><g class="node default" id="classid-分类or回归-176" transform="translate(392.0843753814697, 517.3000030517578)"><rect class="outer title-state" x="-127.5" y="-47.10000038146973" width="255" height="94.20000076293945"></rect><line class="divider" x1="-127.5" x2="127.5" y1="-9.5" y2="-9.5"></line><line class="divider" x1="-127.5" x2="127.5" y1="36.10000038146973" y2="36.10000038146973"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="81.30000305175781" height="25.600000381469727" transform="translate( -40.650001525878906, -39.60000038146973)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">分类or回归</span></div></foreignObject><foreignObject width="240" height="25.600000381469727" transform="translate( -120, 2)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">分类自变量是离散，回归是连续的</span></div></foreignObject></g></g><g class="node default" id="classid-单一算法-177" transform="translate(326.51250076293945, 676.3000030517578)"><rect class="outer title-state" x="-39.5" y="-32.30000019073486" width="79" height="64.60000038146973"></rect><line class="divider" x1="-39.5" x2="39.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-39.5" x2="39.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="64" height="25.600000381469727" transform="translate( -32, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">单一算法</span></div></foreignObject></g></g><g class="node default" id="classid-集成算法-178" transform="translate(457.65625, 676.3000030517578)"><rect class="outer title-state" x="-41.64374923706055" y="-61.90000057220459" width="83.2874984741211" height="123.80000114440918"></rect><line class="divider" x1="-41.64374923706055" x2="41.64374923706055" y1="-24.300000190734863" y2="-24.300000190734863"></line><line class="divider" x1="-41.64374923706055" x2="41.64374923706055" y1="50.90000057220459" y2="50.90000057220459"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="64" height="25.600000381469727" transform="translate( -32, -54.40000057220459)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">集成算法</span></div></foreignObject><foreignObject width="63.66250228881836" height="25.600000381469727" transform="translate( -34.14374923706055, -12.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">bagging</span></div></foreignObject><foreignObject width="68.2874984741211" height="25.600000381469727" transform="translate( -34.14374923706055, 16.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">boosting</span></div></foreignObject></g></g></g></g></g></svg></div><div class="md-diagram-panel md-fences-adv-panel"><svg id="mermaidChart19" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="657.3999938964844" style="max-width: 592.765625px;" viewBox="0 0 592.765625 657.3999938964844" role="img" aria-labelledby="chart-title-mermaidChart19 chart-desc-mermaidChart19"><title id="chart-title-mermaidChart19"></title><desc id="chart-desc-mermaidChart19"></desc><style>#mermaidChart19 {font-family:sans-serif;font-size:16px;fill:#333;}#mermaidChart19 .error-icon{fill:#552222;}#mermaidChart19 .error-text{fill:#552222;stroke:#552222;}#mermaidChart19 .edge-thickness-normal{stroke-width:2px;}#mermaidChart19 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart19 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart19 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart19 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart19 .marker{fill:#333333;stroke:#333333;}#mermaidChart19 .marker.cross{stroke:#333333;}#mermaidChart19 svg{font-family:sans-serif;font-size:16px;}#mermaidChart19 g.classGroup text{fill:#9370DB;fill:#131300;stroke:none;font-family:sans-serif;font-size:10px;}#mermaidChart19 g.classGroup text .title{font-weight:bolder;}#mermaidChart19 .nodeLabel,#mermaidChart19 .edgeLabel{color:#131300;}#mermaidChart19 .edgeLabel .label rect{fill:#ECECFF;}#mermaidChart19 .label text{fill:#131300;}#mermaidChart19 .edgeLabel .label span{background:#ECECFF;}#mermaidChart19 .classTitle{font-weight:bolder;}#mermaidChart19 .node rect,#mermaidChart19 .node circle,#mermaidChart19 .node ellipse,#mermaidChart19 .node polygon,#mermaidChart19 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaidChart19 .divider{stroke:#9370DB;stroke:1;}#mermaidChart19 g.clickable{cursor:pointer;}#mermaidChart19 g.classGroup rect{fill:#ECECFF;stroke:#9370DB;}#mermaidChart19 g.classGroup line{stroke:#9370DB;stroke-width:1;}#mermaidChart19 .classLabel .box{stroke:none;stroke-width:0;fill:#ECECFF;opacity:0.5;}#mermaidChart19 .classLabel .label{fill:#9370DB;font-size:10px;}#mermaidChart19 .relation{stroke:#333333;stroke-width:1;fill:none;}#mermaidChart19 .dashed-line{stroke-dasharray:3;}#mermaidChart19 #compositionStart,#mermaidChart19 .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart19 #compositionEnd,#mermaidChart19 .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart19 #dependencyStart,#mermaidChart19 .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart19 #dependencyStart,#mermaidChart19 .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart19 #extensionStart,#mermaidChart19 .extension{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart19 #extensionEnd,#mermaidChart19 .extension{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart19 #aggregationStart,#mermaidChart19 .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaidChart19 #aggregationEnd,#mermaidChart19 .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaidChart19 .edgeTerminals{font-size:11px;}#mermaidChart19 :root{--mermaid-font-family:sans-serif;}#mermaidChart19 :root{--mermaid-alt-font-family:sans-serif;}</style><g transform="translate(0, 0)"><defs><marker id="classDiagram-aggregationStart" class="marker aggregation classDiagram" refX="0" refY="7" markerWidth="190" markerHeight="240" orient="auto"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-aggregationEnd" class="marker aggregation classDiagram" refX="19" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-extensionStart" class="marker extension classDiagram" refX="0" refY="7" markerWidth="190" markerHeight="240" orient="auto"><path d="M 1,7 L18,13 V 1 Z"></path></marker></defs><defs><marker id="classDiagram-extensionEnd" class="marker extension classDiagram" refX="19" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 1,1 V 13 L18,7 Z"></path></marker></defs><defs><marker id="classDiagram-compositionStart" class="marker composition classDiagram" refX="0" refY="7" markerWidth="190" markerHeight="240" orient="auto"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-compositionEnd" class="marker composition classDiagram" refX="19" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-dependencyStart" class="marker dependency classDiagram" refX="0" refY="7" markerWidth="190" markerHeight="240" orient="auto"><path d="M 5,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-dependencyEnd" class="marker dependency classDiagram" refX="19" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 18,7 L9,13 L14,7 L9,1 Z"></path></marker></defs><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M380.953125,72.5999984741211L380.953125,76.76666514078777C380.953125,80.93333180745442,380.953125,89.26666514078777,380.953125,97.5999984741211C380.953125,105.93333180745442,380.953125,114.26666514078777,380.953125,118.43333180745442L380.953125,122.5999984741211" id="id1" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M341.453125,179.8367410749636L301.2109375,190.16395013286356C260.96875,200.49115919076348,180.484375,221.14557730656338,140.2421875,238.1061195706401C100,255.0666618347168,100,268.3333282470703,100,274.96666145324707L100,281.5999946594238" id="id2" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M380.953125,216.79999542236328L380.953125,220.96666208902994C380.953125,225.13332875569662,380.953125,233.46666208902994,380.953125,244.26666196187338C380.953125,255.0666618347168,380.953125,268.3333282470703,380.953125,274.96666145324707L380.953125,281.5999946594238" id="id3" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M76.5,341.90577842775457L70.33333333333333,349.2548140848964C64.16666666666667,356.60384974203816,51.833333333333336,371.3019210563218,45.666666666666664,382.8176233801303C39.5,394.3333257039388,39.5,402.66665903727215,39.5,406.8333257039388L39.5,410.99999237060547" id="id4" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M123.5,341.90577842775457L129.66666666666666,349.2548140848964C135.83333333333334,356.60384974203816,148.16666666666666,371.3019210563218,154.33333333333334,382.8176233801303C160.5,394.3333257039388,160.5,402.66665903727215,160.5,406.8333257039388L160.5,410.99999237060547" id="id5" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M357.453125,336.95727599409827L349.1223958333333,345.1310620568495C340.7916666666667,353.30484811960065,324.1302083333333,369.6524202451031,315.7994791666667,381.99287297452094C307.46875,394.3333257039388,307.46875,402.66665903727215,307.46875,406.8333257039388L307.46875,410.99999237060547" id="id6" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M262.0909145165111,475.59999084472656L256.2372204304259,479.76665751139325C250.3835263443407,483.9333241780599,238.67613817217034,492.26665751139325,232.82244408608517,500.59999084472656C226.96875,508.9333241780599,226.96875,517.2666575113932,226.96875,521.4333241780599L226.96875,525.5999908447266" id="id7" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M352.8465854834889,475.59999084472656L358.7002795695741,479.76665751139325C364.5539736556593,483.9333241780599,376.26136182782966,492.26665751139325,382.11505591391483,503.06665802001953C387.96875,513.8666585286459,387.96875,527.1333262125651,387.96875,533.7666600545248L387.96875,540.3999938964844" id="id8" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M404.453125,336.95727599409827L412.7838541666667,345.1310620568495C421.1145833333333,353.30484811960065,437.7760416666667,369.6524202451031,446.1067708333333,381.99287297452094C454.4375,394.3333257039388,454.4375,402.66665903727215,454.4375,406.8333257039388L454.4375,410.99999237060547" id="id9" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M420.453125,190.23964041709255L436.9791666666667,198.833032917971C453.5052083333333,207.42642541884948,486.5572916666667,224.61321042060638,503.0833333333333,237.3732695881515C519.609375,250.13332875569662,519.609375,258.46666208902997,519.609375,262.6333287556966L519.609375,266.7999954223633" id="id10" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="classid-集成学习-179" transform="translate(380.953125, 40.29999923706055)"><rect class="outer title-state" x="-39.5" y="-32.30000019073486" width="79" height="64.60000038146973"></rect><line class="divider" x1="-39.5" x2="39.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-39.5" x2="39.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="64" height="25.600000381469727" transform="translate( -32, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">集成学习</span></div></foreignObject></g></g><g class="node default" id="classid-如何集成-180" transform="translate(380.953125, 169.6999969482422)"><rect class="outer title-state" x="-39.5" y="-47.10000038146973" width="79" height="94.20000076293945"></rect><line class="divider" x1="-39.5" x2="39.5" y1="-9.5" y2="-9.5"></line><line class="divider" x1="-39.5" x2="39.5" y1="36.10000038146973" y2="36.10000038146973"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="64" height="25.600000381469727" transform="translate( -32, -39.60000038146973)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">如何集成</span></div></foreignObject><foreignObject width="64" height="25.600000381469727" transform="translate( -32, 2)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">集成策略</span></div></foreignObject></g></g><g class="node default" id="classid-回归-181" transform="translate(100, 313.8999938964844)"><rect class="outer title-state" x="-23.5" y="-32.30000019073486" width="47" height="64.60000038146973"></rect><line class="divider" x1="-23.5" x2="23.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-23.5" x2="23.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="32" height="25.600000381469727" transform="translate( -16, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">回归</span></div></foreignObject></g></g><g class="node default" id="classid-分类-182" transform="translate(380.953125, 313.8999938964844)"><rect class="outer title-state" x="-23.5" y="-32.30000019073486" width="47" height="64.60000038146973"></rect><line class="divider" x1="-23.5" x2="23.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-23.5" x2="23.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="32" height="25.600000381469727" transform="translate( -16, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">分类</span></div></foreignObject></g></g><g class="node default" id="classid-平均分-183" transform="translate(39.5, 443.299991607666)"><rect class="outer title-state" x="-31.5" y="-32.30000019073486" width="63" height="64.60000038146973"></rect><line class="divider" x1="-31.5" x2="31.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-31.5" x2="31.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="48" height="25.600000381469727" transform="translate( -24, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">平均分</span></div></foreignObject></g></g><g class="node default" id="classid-加权平均-184" transform="translate(160.5, 443.299991607666)"><rect class="outer title-state" x="-39.5" y="-32.30000019073486" width="79" height="64.60000038146973"></rect><line class="divider" x1="-39.5" x2="39.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-39.5" x2="39.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="64" height="25.600000381469727" transform="translate( -32, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">加权平均</span></div></foreignObject></g></g><g class="node default" id="classid-投票法voting-185" transform="translate(307.46875, 443.299991607666)"><rect class="outer title-state" x="-57.46875" y="-32.30000019073486" width="114.9375" height="64.60000038146973"></rect><line class="divider" x1="-57.46875" x2="57.46875" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-57.46875" x2="57.46875" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="99.9375" height="25.600000381469727" transform="translate( -49.96875, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">投票法voting</span></div></foreignObject></g></g><g class="node default" id="classid-硬投票-186" transform="translate(226.96875, 587.4999923706055)"><rect class="outer title-state" x="-79.5" y="-61.90000057220459" width="159" height="123.80000114440918"></rect><line class="divider" x1="-79.5" x2="79.5" y1="-24.300000190734863" y2="-24.300000190734863"></line><line class="divider" x1="-79.5" x2="79.5" y1="50.90000057220459" y2="50.90000057220459"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="48" height="25.600000381469727" transform="translate( -24, -54.40000057220459)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">硬投票</span></div></foreignObject><foreignObject width="144" height="25.600000381469727" transform="translate( -72, -12.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">算法得出具体的结果</span></div></foreignObject><foreignObject width="96" height="25.600000381469727" transform="translate( -72, 16.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">少数服从多数</span></div></foreignObject></g></g><g class="node default" id="classid-软投票-187" transform="translate(387.96875, 587.4999923706055)"><rect class="outer title-state" x="-31.5" y="-47.10000038146973" width="63" height="94.20000076293945"></rect><line class="divider" x1="-31.5" x2="31.5" y1="-9.5" y2="-9.5"></line><line class="divider" x1="-31.5" x2="31.5" y1="36.10000038146973" y2="36.10000038146973"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="48" height="25.600000381469727" transform="translate( -24, -39.60000038146973)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">软投票</span></div></foreignObject><foreignObject width="32" height="25.600000381469727" transform="translate( -24, 2)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">概率</span></div></foreignObject></g></g><g class="node default" id="classid-加权投票-188" transform="translate(454.4375, 443.299991607666)"><rect class="outer title-state" x="-39.5" y="-32.30000019073486" width="79" height="64.60000038146973"></rect><line class="divider" x1="-39.5" x2="39.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-39.5" x2="39.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="64" height="25.600000381469727" transform="translate( -32, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">加权投票</span></div></foreignObject></g></g><g class="node default" id="classid-学习法stacking-189" transform="translate(519.609375, 313.8999938964844)"><rect class="outer title-state" x="-65.15625" y="-47.10000038146973" width="130.3125" height="94.20000076293945"></rect><line class="divider" x1="-65.15625" x2="65.15625" y1="-9.5" y2="-9.5"></line><line class="divider" x1="-65.15625" x2="65.15625" y1="36.10000038146973" y2="36.10000038146973"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="115.3125" height="25.600000381469727" transform="translate( -57.65625, -39.60000038146973)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">学习法stacking</span></div></foreignObject><foreignObject width="32" height="25.600000381469727" transform="translate( -57.65625, 2)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">堆叠</span></div></foreignObject></g></g></g></g></g></svg></div><div class="md-diagram-panel md-fences-adv-panel"><svg id="mermaidChart20" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="513.1999969482422" style="max-width: 521.3875122070312px;" viewBox="0 0 521.3875122070312 513.1999969482422" role="img" aria-labelledby="chart-title-mermaidChart20 chart-desc-mermaidChart20"><title id="chart-title-mermaidChart20"></title><desc id="chart-desc-mermaidChart20"></desc><style>#mermaidChart20 {font-family:sans-serif;font-size:16px;fill:#333;}#mermaidChart20 .error-icon{fill:#552222;}#mermaidChart20 .error-text{fill:#552222;stroke:#552222;}#mermaidChart20 .edge-thickness-normal{stroke-width:2px;}#mermaidChart20 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart20 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart20 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart20 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart20 .marker{fill:#333333;stroke:#333333;}#mermaidChart20 .marker.cross{stroke:#333333;}#mermaidChart20 svg{font-family:sans-serif;font-size:16px;}#mermaidChart20 g.classGroup text{fill:#9370DB;fill:#131300;stroke:none;font-family:sans-serif;font-size:10px;}#mermaidChart20 g.classGroup text .title{font-weight:bolder;}#mermaidChart20 .nodeLabel,#mermaidChart20 .edgeLabel{color:#131300;}#mermaidChart20 .edgeLabel .label rect{fill:#ECECFF;}#mermaidChart20 .label text{fill:#131300;}#mermaidChart20 .edgeLabel .label span{background:#ECECFF;}#mermaidChart20 .classTitle{font-weight:bolder;}#mermaidChart20 .node rect,#mermaidChart20 .node circle,#mermaidChart20 .node ellipse,#mermaidChart20 .node polygon,#mermaidChart20 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaidChart20 .divider{stroke:#9370DB;stroke:1;}#mermaidChart20 g.clickable{cursor:pointer;}#mermaidChart20 g.classGroup rect{fill:#ECECFF;stroke:#9370DB;}#mermaidChart20 g.classGroup line{stroke:#9370DB;stroke-width:1;}#mermaidChart20 .classLabel .box{stroke:none;stroke-width:0;fill:#ECECFF;opacity:0.5;}#mermaidChart20 .classLabel .label{fill:#9370DB;font-size:10px;}#mermaidChart20 .relation{stroke:#333333;stroke-width:1;fill:none;}#mermaidChart20 .dashed-line{stroke-dasharray:3;}#mermaidChart20 #compositionStart,#mermaidChart20 .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart20 #compositionEnd,#mermaidChart20 .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart20 #dependencyStart,#mermaidChart20 .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart20 #dependencyStart,#mermaidChart20 .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart20 #extensionStart,#mermaidChart20 .extension{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart20 #extensionEnd,#mermaidChart20 .extension{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaidChart20 #aggregationStart,#mermaidChart20 .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaidChart20 #aggregationEnd,#mermaidChart20 .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaidChart20 .edgeTerminals{font-size:11px;}#mermaidChart20 :root{--mermaid-font-family:sans-serif;}#mermaidChart20 :root{--mermaid-alt-font-family:sans-serif;}</style><g transform="translate(0, 0)"><defs><marker id="classDiagram-aggregationStart" class="marker aggregation classDiagram" refX="0" refY="7" markerWidth="190" markerHeight="240" orient="auto"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-aggregationEnd" class="marker aggregation classDiagram" refX="19" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-extensionStart" class="marker extension classDiagram" refX="0" refY="7" markerWidth="190" markerHeight="240" orient="auto"><path d="M 1,7 L18,13 V 1 Z"></path></marker></defs><defs><marker id="classDiagram-extensionEnd" class="marker extension classDiagram" refX="19" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 1,1 V 13 L18,7 Z"></path></marker></defs><defs><marker id="classDiagram-compositionStart" class="marker composition classDiagram" refX="0" refY="7" markerWidth="190" markerHeight="240" orient="auto"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-compositionEnd" class="marker composition classDiagram" refX="19" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-dependencyStart" class="marker dependency classDiagram" refX="0" refY="7" markerWidth="190" markerHeight="240" orient="auto"><path d="M 5,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker id="classDiagram-dependencyEnd" class="marker dependency classDiagram" refX="19" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 18,7 L9,13 L14,7 L9,1 Z"></path></marker></defs><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M253.51250457763672,72.5999984741211L253.51250457763672,76.76666514078777C253.51250457763672,80.93333180745442,253.51250457763672,89.26666514078777,253.51250457763672,97.5999984741211C253.51250457763672,105.93333180745442,253.51250457763672,114.26666514078777,253.51250457763672,118.43333180745442L253.51250457763672,122.5999984741211" id="id1" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M215.6512530169312,187.1999969482422L210.76719052273563,191.36666361490884C205.88312802854009,195.53333028157553,196.11500304014893,203.86666361490884,191.23094054595336,212.1999969482422C186.3468780517578,220.53333028157553,186.3468780517578,228.86666361490884,186.3468780517578,233.03333028157553L186.3468780517578,237.1999969482422" id="id2" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M291.37375613834223,187.1999969482422L296.2578186325378,191.36666361490884C301.1418811267334,195.53333028157553,310.91000611512453,203.86666361490884,315.79406860932005,212.1999969482422C320.6781311035156,220.53333028157553,320.6781311035156,228.86666361490884,320.6781311035156,233.03333028157553L320.6781311035156,237.1999969482422" id="id3" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M145.49062728881836,305.5157091567993L129.1588560740153,313.99642328008014C112.82708485921223,322.477137403361,80.16354242960612,339.4385656499227,63.83177121480306,357.01928015467325C47.5,374.5999946594238,47.5,392.7999954223633,47.5,401.899995803833L47.5,410.99999618530273" id="id4" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path><path d="M227.20312881469727,305.5157091567993L243.53490002950033,313.99642328008014C259.8666712443034,322.477137403361,292.5302136739095,339.4385656499227,308.8619848887126,352.0859464398702C325.1937561035156,364.7333272298177,325.1937561035156,373.06666056315106,325.1937561035156,377.2333272298177L325.1937561035156,381.3999938964844" id="id5" class="  edge-pattern-solid relation" style="fill:none" marker-end="url(#classDiagram-extensionEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="classid-集成学习-190" transform="translate(253.51250457763672, 40.29999923706055)"><rect class="outer title-state" x="-39.5" y="-32.30000019073486" width="79" height="64.60000038146973"></rect><line class="divider" x1="-39.5" x2="39.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-39.5" x2="39.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="64" height="25.600000381469727" transform="translate( -32, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">集成学习</span></div></foreignObject></g></g><g class="node default" id="classid-学习器的组合策略-191" transform="translate(253.51250457763672, 154.89999771118164)"><rect class="outer title-state" x="-71.5" y="-32.30000019073486" width="143" height="64.60000038146973"></rect><line class="divider" x1="-71.5" x2="71.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-71.5" x2="71.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="128" height="25.600000381469727" transform="translate( -64, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">学习器的组合策略</span></div></foreignObject></g></g><g class="node default" id="classid-bagging-192" transform="translate(186.3468780517578, 284.2999954223633)"><rect class="outer title-state" x="-40.85625076293945" y="-47.10000038146973" width="81.7125015258789" height="94.20000076293945"></rect><line class="divider" x1="-40.85625076293945" x2="40.85625076293945" y1="-9.5" y2="-9.5"></line><line class="divider" x1="-40.85625076293945" x2="40.85625076293945" y1="36.10000038146973" y2="36.10000038146973"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="66.7125015258789" height="25.600000381469727" transform="translate( -33.35625076293945, -39.60000038146973)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">bagging</span></div></foreignObject><foreignObject width="32" height="25.600000381469727" transform="translate( -33.35625076293945, 2)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">并行</span></div></foreignObject></g></g><g class="node default" id="classid-boosting-193" transform="translate(320.6781311035156, 284.2999954223633)"><rect class="outer title-state" x="-43.47500228881836" y="-47.10000038146973" width="86.95000457763672" height="94.20000076293945"></rect><line class="divider" x1="-43.47500228881836" x2="43.47500228881836" y1="-9.5" y2="-9.5"></line><line class="divider" x1="-43.47500228881836" x2="43.47500228881836" y1="36.10000038146973" y2="36.10000038146973"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="71.95000457763672" height="25.600000381469727" transform="translate( -35.97500228881836, -39.60000038146973)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">boosting</span></div></foreignObject><foreignObject width="32" height="25.600000381469727" transform="translate( -35.97500228881836, 2)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">串行</span></div></foreignObject></g></g><g class="node default" id="classid-随机采样-194" transform="translate(47.5, 443.2999954223633)"><rect class="outer title-state" x="-39.5" y="-32.30000019073486" width="79" height="64.60000038146973"></rect><line class="divider" x1="-39.5" x2="39.5" y1="5.300000190734863" y2="5.300000190734863"></line><line class="divider" x1="-39.5" x2="39.5" y1="21.300000190734863" y2="21.300000190734863"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="64" height="25.600000381469727" transform="translate( -32, -24.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">随机采样</span></div></foreignObject></g></g><g class="node default" id="classid-步骤-195" transform="translate(325.1937561035156, 443.2999954223633)"><rect class="outer title-state" x="-188.19375610351562" y="-61.90000057220459" width="376.38751220703125" height="123.80000114440918"></rect><line class="divider" x1="-188.19375610351562" x2="188.19375610351562" y1="-24.300000190734863" y2="-24.300000190734863"></line><line class="divider" x1="-188.19375610351562" x2="188.19375610351562" y1="50.90000057220459" y2="50.90000057220459"></line><g class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel"></span></div></foreignObject><foreignObject class="classTitle" width="32" height="25.600000381469727" transform="translate( -16, -54.40000057220459)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">步骤</span></div></foreignObject><foreignObject width="317.2375183105469" height="25.600000381469727" transform="translate( -180.69375610351562, -12.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">1.对数据集进行随机抽样，划分不同的数据集</span></div></foreignObject><foreignObject width="361.38751220703125" height="25.600000381469727" transform="translate( -180.69375610351562, 16.800000190734863)"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">2对数据集进行训练，同一种算法，对结果进行集成</span></div></foreignObject></g></g></g></g></g></svg></div><p><img src="https://gitee.com/Swinden/images/raw/master/img/20230129150807.png" title="" alt="" data-align="center"></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129151324.png" alt="" data-align="center" width="595"></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129151413.png" alt="" data-align="center" width="644"></p><h2 id='latex'><span>LaTex</span></h2><p><a href='https://zhuanlan.zhihu.com/p/210303123'><span>LaTeX安装 &amp; 宏包升级 - 知乎 (zhihu.com)</span></a></p><p><a href='https://blog.csdn.net/NSJim/article/details/109066847?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167462879216800215018653%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=167462879216800215018653&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-109066847-null-null.142%5ev71%5ejs_top,201%5ev4%5eadd_ask&amp;utm_term=latex&amp;spm=1018.2226.3001.4187'><span>LaTeX详细教程+技巧总结</span><em><span>NSJim的博客-CSDN博客</span></em><span>latex教程</span></a></p><p><a href='https://blog.csdn.net/weixin_45954198/article/details/127430721?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167462879216800215018653%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=167462879216800215018653&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-4-127430721-null-null.142%5ev71%5ejs_top,201%5ev4%5eadd_ask&amp;utm_term=latex&amp;spm=1018.2226.3001.4187'><span>【LaTex】LaTex的下载与安装（超详细、超简洁）</span><em><span>latex下载</span></em><span>X.IO的博客-CSDN博客 </span></a></p><h3 id='下载-1'><span>下载</span></h3><p><span>首先安装 </span><a href='https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/texlive.iso'><span>Texlive</span></a></p><ol start='' ><li><p><span>安装 </span><a href='https://github.com/texstudio-org/texstudio/releases'><span>texstudio</span></a></p><p><img src="https://gitee.com/Swinden/images/raw/master/img/20230129091926.png" title="" alt="" data-align="center"></p></li></ol><p><span>        可点击直接下载，也可以借助 </span><a href='https://ghproxy.com/'><span>GitHub Proxy 代理加速 (ghproxy.com)</span></a><span> 加速下载，比直接点下载快，但是可能还比较慢。建议下载Latest稳定版。</span></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129092604.png" alt="" data-align="center"></p><h3 id='一份简短的关于-latex-安装的介绍'><span>一份简短的关于 LATEX 安装的介绍</span></h3><p><span>        </span><strong><span>首先要学会看文档</span></strong></p><h4 id='文档安装'><span>文档安装</span></h4><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 36px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -28px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">tlmgr install install-latex-guide-zh-cn</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="height: 23px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><h4 id='文档打开'><span>文档打开</span></h4><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 36px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -28px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">texdoc install-latex-guide-zh-cn</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="height: 23px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><h4 id='升级宏包'><span>升级宏包</span></h4><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129093645.png" alt="" data-align="center"></p><h3 id='问题'><span>问题</span></h3><ol start='' ><li><p><span>编译各种Beamer模板时出现报错</span><code>Loading &#39;expl3.sty&#39; aborted!</code></p><p><span>解决方法：cmd窗口中输入</span><code>fmtutil-user --all</code></p><p><span>方法来源： </span><code>https://tex.stackexchange.com/questions/576918/mismatched-latex-support-files-detected</code></p></li><li><p><code>Emergency stop. \RequireXeTeX</code></p><p><span>解决方法：在首行设置用</span><code>% !TEX program = xelatex</code><span> 更换编译器</span></p></li></ol><p><span>      也可以 </span></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129095234.png" alt="" data-align="center"></p><h3 id='模板下载'><span>模板下载</span></h3><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129095850.png" alt="" data-align="center"></p><h3 id='期刊模板下载'><span>期刊模板下载</span></h3><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129102533.png" alt="" data-align="center"></p><h3 id='公式编辑'><span>公式编辑</span></h3><h4 id='在线编辑器'><span>在线编辑器</span></h4><p><a href='https://www.latexlive.com/home##'><span>在线LaTeX公式编辑器-编辑器 (latexlive.com)</span></a></p><h4 id='mathtype'><span>MathType</span></h4><h5 id='下载-2'><span>下载</span></h5><p><a href='https://www.mathtype.cn/xiazai.html?cjtg=mathtype_newsbox_xiazai'><span>MathType中文版下载_数学公式编辑器下载-MathType中文网</span></a></p><p><span> </span><a href='https://pan.baidu.com/s/1qUsMkaqQYLmIMwwz3RIehw?pwd=hb4z'><span>MathType_v7.x_Patch.exe</span></a><span> </span></p><h5 id='安装'><span>安装</span></h5><ol start='' ><li><span>打开</span><code>MathType-7.4.10.53.exe</code><span>文件，完成安装，安装之后不要打开MathType</span></li><li><span>将 </span><code>MathType_v7.x_Patch.exe</code><span> 文件复制到MathType的已安装好的目录，然后打开该文件，完成破解。</span></li></ol><blockquote><p><span>注意：理论上这个破解文件适用于</span><code>MathType 7.x</code><span>的所有版本，所以当你更新完MathType失效后，重新走一遍破解步骤即可。</span></p></blockquote><h3 id='清除编译缓存文件'><span>清除编译缓存文件</span></h3><p><span>        将下面代码cv至</span><code>#delete-temp-files.txt</code><span>文件，再改为后缀为</span><code>.bat</code><span> 文件</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="batch"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="batch"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 36px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>5</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -28px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">@echo off</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">del /q *.aux *.bbl *.blg *.log *.out *.toc *.bcf *.xml *.synctex *.nlo *.nls *.bak *.ind *.idx *.ilg *.lof *.lot *.ent-x *.tmp *.ltx *.los *.lol *.loc *.listing *.gz *.userbak *.nav *.snm *.vrb *.synctex(busy)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">del /q *.nav *.snm *.vrb *.fls *.xdv *.fdb_latexmk</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 161px;"></div><div class="CodeMirror-gutters" style="height: 161px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p><span>        双击该文件便可以自动清除缓存</span></p><h3 id='模板使用'><span>模板使用</span></h3><p><a href='https://pan.baidu.com/s/1tcO6ZTPe1K2Kzx5WwQUg1w?pwd=rjpt'><span>一个模板</span></a></p><p><span>        可以参考里面的注释</span></p><blockquote><p><span>注意：</span><code>pdflatex</code><span>编译器不能出现中文，可能比较适合美赛(不能有中文的)书写，存在中文便报错</span></p></blockquote><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="latex"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="latex"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 36px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -28px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">% !TEX program = pdflatex</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="height: 23px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p><span>        设置编译器，自选，美赛建议</span><code>pdflatex</code><span>，注意这个出现中文便报错</span></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129105459.png" alt="" data-align="center"></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129105543.png" alt="" data-align="center"></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129105612.png" alt="" data-align="center"></p><p><img title="" src="https://gitee.com/Swinden/images/raw/master/img/20230129105704.png" alt="" data-align="center"></p><p>&nbsp;</p></div></div>
+</body>
+</html>
